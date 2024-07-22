@@ -11,3 +11,15 @@
 
 #!.yarn/cache
 .pnp.*
+
+
+# for editor
+.vscode/*
+.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
