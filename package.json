@@ -2,6 +2,20 @@
   "name": "web",
   "packageManager": "yarn@4.3.1",
   "workspaces": [
-    "packages/*"
-  ]
+    "apps/*",
+    "ui",
+    "libs/*"
+  ],
+  "devDependencies": {
+    "typescript": "^5.5.3"
+  },
+  "scripts": {
+    "web": "yarn workspace @1take/web",
+    "apis": "yarn workspace @1take/apis",
+    "admin": "yarn workspace @1take/admin",
+    "ui": "yarn workspace @1take/ui",
+    "web:dev": "yarn workspace @1take/web dev",
+    "web:build": "yarn workspace @1take/web build",
+    "apis:test": "yarn workspace @1take/apis test"
+  }
 }
