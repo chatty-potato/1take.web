@@ -3,7 +3,7 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 import { login } from "@1take/apis";
-import { Button } from "@1take/ui";
+import { Button, Input } from "@1take/ui";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -11,7 +11,8 @@ function App() {
   return (
     <>
       <div>
-        <Button>버튼</Button>
+        <Button  label="버튼" backgroundColor="white"/>
+        <Input />
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
