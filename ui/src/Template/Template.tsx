@@ -4,7 +4,7 @@ type Props = HTMLAttributes<HTMLInputElement> & {
     label?: string,
 }
 
-const Input = ({label, ...props}: Props) => {
+export const Input = ({label, ...props}: Props) => {
   return (
     <div>
         {label ? <label>{label}</label> : null}
@@ -12,5 +12,3 @@ const Input = ({label, ...props}: Props) => {
     </div>
   )
 }
-
-export default Input;
