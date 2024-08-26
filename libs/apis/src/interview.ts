@@ -20,10 +20,10 @@ const InterviewApis = {
   getInterviewQuestion: () => {
     return fetcher.get<InterviewResponseData>("/interview/questions");
   },
-  postinterviewAnswer: (data : any) => {
+  postInterviewAnswer: (data : any) => {
     return fetcher.post<InterviewResponseData>("/interview/answer", data);
   },
-  postinterviewreport: (data : any) => { 
+  postInterviewreport: (data : any) => { 
     return fetcher.post<InterviewResponseData>("/interview/report", data);
   }
 };

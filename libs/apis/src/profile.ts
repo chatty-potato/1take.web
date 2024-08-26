@@ -8,7 +8,7 @@ type InterviewListResponseData = {
   content: string;
 };
 
-const mypageApis = {
+const profileApis = {
   getProfile: () => {
     return fetcher.get<ProfileResponseData>("/profile");
   },
@@ -20,4 +20,4 @@ const mypageApis = {
   },
 }
 
-export default mypageApis;
+export default profileApis;
