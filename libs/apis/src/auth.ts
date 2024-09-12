@@ -1,12 +1,24 @@
-import fetcher from "./fetcher";
-
-type authResponseData = {
-  content: string;
-};
+import fetcher from "./utils/fetcher";
+import { 
+  TokenAuthenticateResponse,
+  AccountCreateRequest,
+  AccountCreateResponse,
+  AccountDeleteResponse,
+  LogoutResponse
+} from "./types/auth.type";
 
 const authApis = {
-  getUser: () => {
-    return fetcher.get<authResponseData>("/auth/info");
+  authenticateToken: () => {
+    return fetcher.get<TokenAuthenticateResponse>("/auth");
+  },
+  createAccount: (data: AccountCreateRequest) => {
+    return fetcher.post<AccountCreateResponse>("/auth", data);
+  },
+  deleteAccount: () => {
+    return fetcher.patch<AccountDeleteResponse>("/auth");
+  },
+  logout: () => {
+    return fetcher.post<LogoutResponse>("/auth/logout");
   },
 }
 

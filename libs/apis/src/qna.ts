@@ -1,5 +1,5 @@
-import { API_RESOURCE } from "./config";
-import fetcher from "./fetcher";
+import { API_RESOURCE } from "./utils/config";
+import fetcher from "./utils/fetcher";
 
 type QnaResponseData = {
   content: string;
