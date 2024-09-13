@@ -6,7 +6,7 @@ const InterviewRoutes: RouteObject = {
   Component: Pages.Interview.Layout,
   children: [
     {
-      index: true,
+      path: "",
       Component: Pages.Interview.Home,
     },
     {
@@ -17,6 +17,7 @@ const InterviewRoutes: RouteObject = {
       path: ":sessionId",
       Component: Pages.Interview.Session,
       loader: async ({ params: { sessionId } }) => {
+        // TODO: WILL BE DELTE IT just show how to use loader
         return new Response(JSON.stringify({ sessionId }), {
           status: 200,
           headers: {
