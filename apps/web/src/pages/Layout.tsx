@@ -17,6 +17,7 @@ const Layout = () => {
         <NavLink to="/login">to login</NavLink>
         <NavLink to="/interview">to interview</NavLink>
         <NavLink to="/term-and-services">to term-and-services</NavLink>
+        <NavLink to="/tips-for-interview">to tips-for-interview</NavLink>
       </nav>
       <Outlet />
     </div>
