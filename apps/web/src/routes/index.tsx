@@ -1,6 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
 import * as Pages from "../pages";
 import InterviewRoutes from "./Interview.routes";
+import { policyRoutes } from "./Pocliy.routes";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -8,7 +10,7 @@ const router = createBrowserRouter([
     children: [
       // TODO: Split to pages pages folder will be nesteds Architecture.
       {
-        index: true,
+        path: "",
         Component: Pages.Home,
       },
       {
@@ -17,26 +19,10 @@ const router = createBrowserRouter([
       },
       {
         path: "tips-for-interview",
-        Component: Pages.TipForInterview,
+        Component: Pages.TipsForInterview,
       },
       InterviewRoutes,
-      {
-        path: "term-and-services",
-        Component: Pages.Policy.Layout,
-        children: [
-          {
-            path: "term",
-            Component: Pages.Policy.Term,
-          },
-          {
-            path: "service",
-            Component: Pages.Policy.Service,
-          },
-          {
-            
-          }
-        ],
-      },
+      policyRoutes,
     ],
   },
 ]);
