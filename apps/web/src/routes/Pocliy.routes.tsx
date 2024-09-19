@@ -1,5 +1,6 @@
 import { RouteObject } from "react-router-dom";
 import { Policy } from "../pages";
+import NotFound from "../pages/NotFound";
 
 export const policyRoutes: RouteObject = {
   path: "term-and-services",
@@ -13,6 +14,9 @@ export const policyRoutes: RouteObject = {
       path: "service",
       Component: Policy.Service,
     },
-    {},
+    {
+      path: "*",
+      Component: NotFound,
+    },
   ],
 };

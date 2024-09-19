@@ -25,6 +25,10 @@ const router = createBrowserRouter([
       policyRoutes,
     ],
   },
+  {
+    path: "*",
+    Component: Pages.Notfound,
+  },
 ]);
 
 export default router;

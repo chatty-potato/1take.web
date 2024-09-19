@@ -26,6 +26,10 @@ const InterviewRoutes: RouteObject = {
         });
       },
     },
+    {
+      path: "*",
+      Component: Pages.Notfound,
+    },
   ],
 };
 
