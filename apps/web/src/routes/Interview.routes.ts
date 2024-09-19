@@ -27,6 +27,10 @@ const InterviewRoutes: RouteObject = {
       },
     },
     {
+      path: "bookmark",
+      Component: Pages.Interview.BookMark,
+    },
+    {
       path: "*",
       Component: Pages.Notfound,
     },
