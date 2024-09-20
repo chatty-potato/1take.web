@@ -27,7 +27,7 @@
   },
   "scripts": {
     "test": "vitest --globals",
-    "coverage": "vitest --globals --coverage --ui",
+    "coverage": "vitest --globals --coverage",
     "web": "yarn workspace @1take/web",
     "apis": "yarn workspace @1take/apis",
     "admin": "yarn workspace @1take/admin",
