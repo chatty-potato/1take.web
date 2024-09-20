@@ -1,30 +1,41 @@
-import fetcher from "./fetcher";
-
-type InterviewResponseData = {
-  content: string;
-};
+import fetcher from "./utils/fetcher";
+import { InterviewSession } from "./entity/interview.entities";
+import { 
+  InterviewListGetResponse,
+  InterviewCategoryGetResponse,
+  InterviewBeginPostRequest,
+  InterviewBeginPostResponse,
+  InterviewQuestionResponse,
+  InterviewAnswerPostRequest,
+  InterviewAnswerPostResponse,
+  InterviewReportPostRequest,
+  InterviewReportPostResponse,
+  InterviewReportGetResponse,
+ } from "./types/interview.types";
 
 const InterviewApis = {
-	createComment: (data : any) => {
-  	return fetcher.post<InterviewResponseData>("/interview", data);
-	},
-  patchInterview: (data : any) => {
-    return fetcher.patch<InterviewResponseData>("/interview", data);
+  getInterviewList: () => {
+    return fetcher.get<InterviewListGetResponse>("/interview/interviews");
   },
   getInterviewCategory: () => {
-    return fetcher.get<InterviewResponseData>("/interview/category");
+    return fetcher.get<InterviewCategoryGetResponse>("/category");
   },
-  beginInterview: (data : any) => {
-    return fetcher.post<InterviewResponseData>("/interview/begin", data);
+  beginInterview: (data : InterviewBeginPostRequest) => {
+    return fetcher.post<InterviewBeginPostResponse>("/interview", data);
   },
-  getInterviewQuestion: () => {
-    return fetcher.get<InterviewResponseData>("/interview/questions");
+  getInterviewQuestion: (sessionID: Pick<InterviewSession, 'sessionID'>) => {
+    return fetcher.get<InterviewQuestionResponse>(`/interview/questions/${sessionID}`);
   },
-  postInterviewAnswer: (data : any) => {
-    return fetcher.post<InterviewResponseData>("/interview/answer", data);
+  postInterviewAnswer: (
+    data : InterviewAnswerPostRequest, 
+    sessionID: Pick<InterviewSession, 'sessionID'>) => {
+    return fetcher.post<InterviewAnswerPostResponse>(`/interview/answer/${sessionID}`, data);
   },
-  postInterviewreport: (data : any) => { 
-    return fetcher.post<InterviewResponseData>("/interview/report", data);
+  postInterviewreport: (data : InterviewReportPostRequest) => { 
+    return fetcher.post<InterviewReportPostResponse>("/interview/report", data);
+  },
+  getInterviewreport: (sessionID: Pick<InterviewSession, 'sessionID'>) => {
+    return fetcher.get<InterviewReportGetResponse>(`/interview/report/${sessionID}`);
   }
 };
 

@@ -1,22 +1,25 @@
-import fetcher from "./fetcher";
-
-type ProfileResponseData = {
-  content: string;
-};
-
-type InterviewListResponseData = {
-  content: string;
-};
+import fetcher from "./utils/fetcher";
+import { 
+  ProfileGetResponse,
+  PositionTypeGetResponse,
+  ProfilePatchRequest,
+  ProfilePatchResponse,
+  ProfileImagePatchRequest, 
+  ProfileImagePatchResponse,
+} from "./types/profile.type";
 
 const profileApis = {
   getProfile: () => {
-    return fetcher.get<ProfileResponseData>("/profile");
+    return fetcher.get<ProfileGetResponse>("/profile");
   },
-  patchProfile: (data : any) => {
-    return fetcher.patch<ProfileResponseData>("/profile", data);
+  getPositionType: () => {
+    return fetcher.get<PositionTypeGetResponse>("/category");
   },
-  getInterviewList: () => {
-    return fetcher.get<InterviewListResponseData>("/profile/interviews");
+  patchProfile: (data : ProfilePatchRequest) => {
+    return fetcher.patch<ProfilePatchResponse>("/profile", data);
+  },
+  patchProfileImage: (data : ProfileImagePatchRequest) => {
+    return fetcher.patch<ProfileImagePatchResponse>("/profile/image", data);
   },
 }
 
