@@ -5,16 +5,12 @@ type Props = HTMLAttributes<HTMLInputElement> & {
   buttonText?: string;
   placeholder: string;
 };
-  label?: string;
-  buttonText?: string;
-  placeholder: string;
-};
 
 export const Input = ({ label, ...props }: Props) => {
   return (
     <div>
-        {label ? <label>{label}</label> : null}
-        <input {...props} />
+      {label ? <label>{label}</label> : null}
+      <input {...props} />
     </div>
   );
 };
