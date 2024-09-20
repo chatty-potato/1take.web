@@ -1,5 +1,4 @@
-import { HTMLAttributes } from "react";
-import { ButtonProps } from "../Template2/Button";
+import { HTMLAttributes } from 'react';
 
 type Props = HTMLAttributes<HTMLInputElement> & {
   label?: string;
@@ -7,20 +6,11 @@ type Props = HTMLAttributes<HTMLInputElement> & {
   placeholder: string;
 };
 
-export const Input = ({ label, buttonText, ...props }: Props) => {
+export const Input = ({ label, ...props }: Props) => {
   return (
     <div>
-      {label ? <label htmlFor={label}>{label}</label> : null}
-      <input id={label} {...props} />
+      {label ? <label>{label}</label> : null}
+      <input {...props} />
     </div>
   );
-};
-
-type ButtonProps = HTMLAttributes<HTMLButtonElement> & {
-  children: React.ReactNode;
-  didsabled?: boolean;
-};
-
-export const Button = ({ children, ...props }: ButtonProps) => {
-  return <button {...props}>{children}</button>;
 };
