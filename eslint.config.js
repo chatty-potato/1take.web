@@ -6,7 +6,16 @@ import vitest from '@vitest/eslint-plugin';
 
 export default [
   {
+    settings: {
+      react: {
+        version: 'detect',
+      },
+    },
+  },
+  {
     ignores: ['.yarn/**', '**/.storybook/**'],
+  },
+  {
     files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'],
   },
   {
@@ -18,6 +27,7 @@ export default [
   {
     rules: {
       'react/react-in-jsx-scope': 'off', //  Vite.js handle this automatically
+      '@typescript-eslint/no-require-imports': 'off', // Vite.js handle this automatically
     },
   },
   {
