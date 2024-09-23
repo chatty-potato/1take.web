@@ -1,5 +1,3 @@
-import { Q } from 'vitest/dist/reporters-B7ebVMkT';
-
 const API_URL = 'http://localhost:4000/api/v1';
 // || (import.meta.env.VITE_API_URL as string) ; // VITE 패키지의 위치에 대한 고려 필요
 const DEFAULT_TIME_OUT = 1000 * 10; // 10초
