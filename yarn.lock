@@ -3352,7 +3352,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/utils@npm:8.6.0":
+"@typescript-eslint/utils@npm:8.6.0, @typescript-eslint/utils@npm:^8.6.0":
   version: 8.6.0
   resolution: "@typescript-eslint/utils@npm:8.6.0"
   dependencies:
@@ -9938,6 +9938,7 @@ __metadata:
     "@testing-library/jest-dom": "npm:^6.5.0"
     "@typescript-eslint/eslint-plugin": "npm:^8.6.0"
     "@typescript-eslint/parser": "npm:^8.6.0"
+    "@typescript-eslint/utils": "npm:^8.6.0"
     "@vitest/coverage-v8": "npm:^2.0.5"
     "@vitest/eslint-plugin": "npm:^1.1.4"
     "@vitest/ui": "npm:^2.0.5"
@@ -9947,6 +9948,7 @@ __metadata:
     globals: "npm:^15.9.0"
     jsdom: "npm:^25.0.0"
     prettier: "npm:^3.3.3"
+    react: "npm:^18.3.1"
     typescript: "npm:^5.5.3"
     typescript-eslint: "npm:^8.6.0"
     vitest: "npm:^2.0.5"
