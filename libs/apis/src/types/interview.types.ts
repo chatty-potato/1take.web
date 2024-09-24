@@ -6,66 +6,69 @@ import {
 } from '../entity/interview.entities';
 
 /**
-  * @METHOD GET
-  * @AUTH NEED
-  * @URI /interview/interviews
-  */
+ * @METHOD GET
+ * @AUTH NEED
+ * @URI /interviews
+ */
 export type InterviewListGetResponse = {
-  sessions: InterviewSession[],
+  sessions: InterviewSession[];
 };
 
 /**
-  * @METHOD GET
-  * @AUTH NEED
-  * @URI /interview/category
-  */
+ * @METHOD GET
+ * @AUTH NEED
+ * @URI /category
+ */
 export type InterviewCategoryGetResponse = Categories;
 
 /**
-  * @METHOD POST
-  * @AUTH NEED
-  * @URI /interview
-  */
-export type InterviewBeginPostRequest = Pick<InterviewSession, 'title'> & Categories;
-export type InterviewBeginPostResponse = Pick<InterviewSession, 'sessionID'>;
+ * @METHOD POST
+ * @AUTH NEED
+ * @URI /interviews
+ */
+export type InterviewPostRequest = Pick<InterviewSession, 'title'> & Categories;
+export type InterviewPostResponse = Pick<InterviewSession, 'sessionID'>;
 
 /**
-  * @METHOD GET
-  * @AUTH NEED
-  * @URI /interview/question/{session_id}
-  */
+ * @METHOD GET
+ * @AUTH NEED
+ * @URI /interviews/{session_id}/questions
+ */
 export type InterviewQuestionResponse = {
-  currentQuestionIndex: Pick<InterviewQNA, 'questionIndex'>,
-  questions: Pick<InterviewQNA, 'question' | 'questionIndex'>[],
+  currentQuestionIndex: Pick<InterviewQNA, 'questionIndex'>;
+  questions: Pick<InterviewQNA, 'question' | 'questionIndex' | 'answer'>[];
 };
 
 /**
-  * @METHOD POST
-  * @AUTH NEED
-  * @URI //api/interview/answer/{session_id}
-  */
-export type InterviewAnswerPostRequest = Pick<InterviewQNA, 'questionIndex' | 'answer'> 
+ * @METHOD POST
+ * @AUTH NEED
+ * @URI /interviews/{session_id}/answer
+ */
+export type InterviewAnswerPostRequest = Pick<
+  InterviewQNA,
+  'questionIndex' | 'answer'
+>;
 export type InterviewAnswerPostResponse = Pick<InterviewSession, 'done'>; // 다시 request 보내서 레포트 가져오기
 
-
 /**
-  * @METHOD POST
-  * @AUTH NEED
-  * @URI /interview/repport/{session_id}
-  */
-export type InterviewReportPostRequest = Pick<InterviewSession, 'sessionID'>;
+ * @METHOD POST
+ * @AUTH NEED
+ * @URI /interviews/repports/{session_id}
+ */
+export type InterviewReportPostRequest = undefined | null;
 export type InterviewReportPostResponse = InterviewSession & {
-  InterviewQNAs: InterviewQNA[],
+  InterviewQNAs: InterviewQNA[];
 };
 
 /**
-  * @METHOD GET
-  * @AUTH NEED
-  * @URI /interview/report/{session_id}
-  */
+ * @METHOD GET
+ * @AUTH NEED
+ * @URI /interviews/reports/{session_id}
+ */
 export type InterviewReportGetResponse = InterviewSession & {
-  InterviewQNAs: InterviewQNA[],
+  InterviewQNAs: InterviewQNA[];
   bookmarks: Array<
-    Pick<BookMark, 'bookmarkID'> & Pick<BookMark['interviewQNA'], 'questionIndex'>
-  >,
+    Pick<BookMark, 'bookmarkID'> &
+      Pick<BookMark['interviewQNA'], 'questionIndex'>
+  >;
 };

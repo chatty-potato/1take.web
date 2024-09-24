@@ -13,7 +13,7 @@ export default [
     },
   },
   {
-    ignores: ['.yarn/**', '**/.storybook/**'],
+    ignores: ['.yarn/**', '**/.storybook/**', '.pnp.cjs'],
   },
   {
     files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'],

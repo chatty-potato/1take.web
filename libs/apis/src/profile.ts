@@ -1,26 +1,30 @@
-import fetcher from "./utils/fetcher";
-import { 
+import fetcher from './utils/fetcher';
+import { API_RESOURCE } from './utils/config';
+import {
   ProfileGetResponse,
   PositionTypeGetResponse,
   ProfilePatchRequest,
   ProfilePatchResponse,
-  ProfileImagePatchRequest, 
+  ProfileImagePatchRequest,
   ProfileImagePatchResponse,
-} from "./types/profile.type";
+} from './types/profile.type';
+
+const { PROFILE } = API_RESOURCE;
+const { CATEGORY } = API_RESOURCE;
 
 const profileApis = {
   getProfile: () => {
-    return fetcher.get<ProfileGetResponse>("/profile");
+    return fetcher.get<ProfileGetResponse>(PROFILE);
   },
   getPositionType: () => {
-    return fetcher.get<PositionTypeGetResponse>("/category");
+    return fetcher.get<PositionTypeGetResponse>(CATEGORY);
   },
-  patchProfile: (data : ProfilePatchRequest) => {
-    return fetcher.patch<ProfilePatchResponse>("/profile", data);
+  patchProfile: (data: ProfilePatchRequest) => {
+    return fetcher.patch<ProfilePatchResponse>(PROFILE, data);
   },
-  patchProfileImage: (data : ProfileImagePatchRequest) => {
-    return fetcher.patch<ProfileImagePatchResponse>("/profile/image", data);
+  patchProfileImage: (data: ProfileImagePatchRequest) => {
+    return fetcher.patch<ProfileImagePatchResponse>(`${PROFILE}}/image`, data);
   },
-}
+};
 
 export default profileApis;

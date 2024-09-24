@@ -1,26 +1,34 @@
-import fetcher from "./utils/fetcher";
+import fetcher from './utils/fetcher';
+import { API_RESOURCE } from './utils/config';
 import {
   BookmarkListGetResponse,
   BookmarkCreateRequest,
   BookmarkCreateResponse,
   BookmarkDeleteResponse,
-  BookmarkDeleteRequest
-} from "./types/bookmark.types";
+  BookmarkDeleteRequest,
+} from './types/bookmark.types';
+
+const { INTERVIEWS } = API_RESOURCE;
+const { QUESTIONS } = API_RESOURCE;
+const { BOOOKMARKS } = API_RESOURCE;
 
 const bookmarkApis = {
   getBookmarkList: () => {
     return fetcher.get<BookmarkListGetResponse>(
-      "/interview/question/bookmarks"
+      `${INTERVIEWS}${QUESTIONS}${BOOOKMARKS}`,
     );
   },
   createBookmark: (data: BookmarkCreateRequest) => {
     return fetcher.post<BookmarkCreateResponse>(
-      "/interview/question/bookmark",
-      data
+      `${INTERVIEWS}${QUESTIONS}${BOOOKMARKS}`,
+      data,
     );
   },
   deleteBookmark: (data: BookmarkDeleteRequest) => {
-    return fetcher.patch<BookmarkDeleteResponse>("/interview/question/bookmark", data);
+    return fetcher.patch<BookmarkDeleteResponse>(
+      `${INTERVIEWS}${QUESTIONS}${BOOOKMARKS}`,
+      data,
+    );
   },
 };
 

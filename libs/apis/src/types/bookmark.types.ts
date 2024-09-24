@@ -1,26 +1,27 @@
 import { BookMark } from '../entity/bookmark.entities';
 
 /**
-  * @METHOD GET
-  * @AUTH NEED
-  * @URI /interview/question/bookmarks
-  */
+ * @METHOD GET
+ * @AUTH NEED
+ * @URI /interviews/questions/bookmarks
+ */
 export type BookmarkListGetResponse = {
-  bookmarks: BookMark[]
-}
+  bookmarks: BookMark[];
+};
 
 /**
-  * @METHOD POST
-  * @AUTH NEED
-  * @URI /interview/question/bookmark
-  */
-export type BookmarkCreateRequest = Pick<BookMark, 'sessionID'> & Pick< BookMark['interviewQNA'], 'questionIndex'>;
+ * @METHOD POST
+ * @AUTH NEED
+ * @URI /interviews/questions/bookmarks
+ */
+export type BookmarkCreateRequest = Pick<BookMark, 'sessionID'> &
+  Pick<BookMark['interviewQNA'], 'questionIndex'>;
 export type BookmarkCreateResponse = Pick<BookMark, 'bookmarkID'>;
 
 /**
-  * @METHOD PATCH
-  * @AUTH NEED
-  * @URI /interview/question/bookmark
-  */
+ * @METHOD PATCH
+ * @AUTH NEED
+ * @URI /interviews/questions/bookmarks
+ */
 export type BookmarkDeleteRequest = Pick<BookMark, 'bookmarkID'>;
 export type BookmarkDeleteResponse = undefined | null;
