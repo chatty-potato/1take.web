@@ -36,7 +36,7 @@ export type InterviewPostResponse = Pick<InterviewSession, 'sessionID'>;
  */
 export type InterviewQuestionResponse = {
   currentQuestionIndex: Pick<InterviewQNA, 'questionIndex'>;
-  questions: Pick<InterviewQNA, 'question' | 'questionIndex'>[];
+  questions: Pick<InterviewQNA, 'question' | 'questionIndex' | 'answer'>[];
 };
 
 /**
