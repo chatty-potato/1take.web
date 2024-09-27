@@ -1,16 +1,17 @@
 // TODO: It is temporal file for routes other pages
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet } from 'react-router-dom';
+import Header from '../components/Header';
 
 const Layout = () => {
   return (
     <div>
-      <p>Root Layout</p>
+      <Header />
       <nav
         style={{
-          display: "flex",
-          width: "100vw",
-          alignItems: "center",
-          justifyContent: "space-around",
+          display: 'flex',
+          width: '100vw',
+          alignItems: 'center',
+          justifyContent: 'space-around',
         }}
       >
         <NavLink to="/">to home</NavLink>
