@@ -19,6 +19,9 @@ const Layout = () => {
         <NavLink to="/interview">to interview</NavLink>
         <NavLink to="/term-and-services">to term-and-services</NavLink>
         <NavLink to="/tips-for-interview">to tips-for-interview</NavLink>
+        <NavLink to={`/example/${Math.floor(Math.random() * 1000)}`}>
+          example
+        </NavLink>
       </nav>
       <Outlet />
     </div>
