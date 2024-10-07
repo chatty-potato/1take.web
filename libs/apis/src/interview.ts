@@ -23,16 +23,20 @@ const InterviewApis = {
   getInterviewList: () => {
     return fetcher.get<InterviewListGetResponse>(INTERVIEWS);
   },
-  getInterviewCategory: () => {
-    return fetcher.get<InterviewCategoryGetResponse>(CATEGORY);
+  getInterviewCategory: async () => {
+    const { data } = await fetcher.get<InterviewCategoryGetResponse>(CATEGORY);
+    const { categories } = data;
+    if (!categories) throw new Error('No categories');
+    return categories;
   },
   postInterview: (data: InterviewPostRequest) => {
     return fetcher.post<InterviewPostResponse>(INTERVIEWS, data);
   },
-  getInterviewQuestion: (sessionID: Pick<InterviewSession, 'sessionID'>) => {
-    return fetcher.get<InterviewQuestionResponse>(
-      `${INTERVIEWS}/${sessionID}${QUESTIONS}}`,
+  getInterviewQuestion: async (sessionID: InterviewSession['sessionID']) => {
+    const { data } = await fetcher.get<InterviewQuestionResponse>(
+      `${INTERVIEWS}/${sessionID}${QUESTIONS}`,
     );
+    return data;
   },
   postInterviewAnswer: (
     data: InterviewAnswerPostRequest,

@@ -1,10 +1,11 @@
-import Axios from "axios";
+import Axios from 'axios';
 import {
   DEFAULT_TIME_OUT,
   API_URL,
   AUTH_UN_NEED_URL,
   AUTH_TOKEN_TYPE,
-} from "./config";
+  LOGIN_VALIDATION_FEATURE,
+} from './config';
 
 /**
  * @name fetcher
@@ -25,10 +26,10 @@ const fetcher = Axios.create({
 // API 요청시 토큰이 필요한 경우에 토큰을 추가하거나, 토큰이 없는 경우 에러를 발생시킵니다.
 fetcher.interceptors.request.use((config) => {
   const authNeeds = !AUTH_UN_NEED_URL.some((uri) => config.url?.match(uri));
-  const token = localStorage.getItem("token"); //TODO: 토큰을 어디에 저장할지 정해야합니다
+  const token = localStorage.getItem('token'); //TODO: 토큰을 어디에 저장할지 정해야합니다
 
-  if (authNeeds) {
-    if (!token) throw new Error("토큰이 없습니다.");
+  if (authNeeds && LOGIN_VALIDATION_FEATURE) {
+    if (!token) throw new Error('토큰이 없습니다.');
     config.headers.Authorization = `${AUTH_TOKEN_TYPE} ${token}`;
   }
   return config;

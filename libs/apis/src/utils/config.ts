@@ -3,6 +3,7 @@ const API_URL = 'http://localhost:4000/api/v1';
 const DEFAULT_TIME_OUT = 1000 * 10; // 10초
 const AUTH_UN_NEED_URL: RegExp[] = [/\/auth\/login/];
 const AUTH_TOKEN_TYPE = 'Bearer';
+export const LOGIN_VALIDATION_FEATURE = false;
 
 const API_RESOURCE = {
   AUTH: '/auth',

@@ -27,7 +27,7 @@ export type InterviewCategoryGetResponse = Categories;
  * @URI /interviews
  */
 export type InterviewPostRequest = Pick<InterviewSession, 'title'> & Categories;
-export type InterviewPostResponse = Pick<InterviewSession, 'sessionID'>;
+export type InterviewPostResponse = InterviewSession['sessionID'];
 
 /**
  * @METHOD GET
@@ -35,7 +35,6 @@ export type InterviewPostResponse = Pick<InterviewSession, 'sessionID'>;
  * @URI /interviews/{session_id}/questions
  */
 export type InterviewQuestionResponse = {
-  currentQuestionIndex: Pick<InterviewQNA, 'questionIndex'>;
   questions: Pick<InterviewQNA, 'question' | 'questionIndex' | 'answer'>[];
 };
 
